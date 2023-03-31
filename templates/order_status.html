@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'order_status_style.css' %}"/>
+    <script src="Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript">
+         window.onpopstate = function() {
+            window.location.href = "{% url 'order_status' orderId %}";
+        }; history.pushState({}, '');
+    </script>
+</head>
+<body>
+    <h1 class="heading">Order Status</h1>
+    <nav class="sec">
+        <button class="bt_1">
+            <a class="link"  style="color:black" href="{%url 'details' orderId%}">Bill</a>
+        </button>
+        <button class="bt_2">
+            <a class="link" style="color:black" href="{% url 'menu' orderId %}">Menu</a>
+        </button>
+    </nav>
+    {% for x,qnt  in mylist %}
+        <div class="item">
+            <div class="left">
+                <p class="left itmf">
+                    <img class="veg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6y3NcyfXZ93xhY-u4_XEndeTd-mrRvCYNIpa48vKDdBJGbWVp3ZOoRZ515gC12-QW09M&usqp=CAU">
+                    <b style="background-color: #fefed5;">{{ x.food_name }}</b>
+                    <span class="right">
+                        <label style="background-color: #fefed5; font-size: 20px;">Rs.</label><b class="right mainf">{{ qnt.order_price }}</b><br>
+                    </span>
+                </p>
+                <p style="margin-top: 3%;" class="left">
+                    <label style="background-color: #fefed5; font-size: 1.2rem;">Quantity : <b style="background-color: #fefed5; font-size: 1.2rem;">{{qnt.quantity}}</b>&nbsp &nbsp</label>
+                    <span >
+                        <span><label style="background-color: #fefed5; font-size: 1.2rem;">Rating: &nbsp{{x.avg_review}}/5</label>
+                            <a class="right" href="{%url 'delete_item' orderId x.food_id %}" style="text-decoration: none; color: red; display: flex; background-color: #fefed5; font-size: large; margin-left: 0.5rem;"><b style="background-color:
+                                #fefed5;">Remove</b></a>
+                        </span>
+                    </span>
+                </p>
+                <form style="background-color: #fefed5; margin-top: 3%; margin-bottom: 1%;" action="{%url 'comment' orderId x.food_id %}" method="post">{% csrf_token %}
+                <textarea style="background-color: #fefed5;" id="modf" name="modf" rows="1
+                " cols="35"  placeholder="Enter your Modifications ..." ></textarea>
+                <input style="background-color: #fefed5;" type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+        <br><br><br>
+        <h1 style="text-align: right;" class="ttl">Total Price : {{total_price}} Rs. &nbsp&nbsp</h1>
+</body>
+</html>

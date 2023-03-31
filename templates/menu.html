@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'menu_style.css'%}"/>
+</head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+<body>
+    <nav class="top">
+        <p style="font-family: Sofia, sans-serif; color: red; font-size: 37px; margin-top: 2%; text-align: center; margin-bottom: 1.3%;">Delicious Menu !</p>
+        
+    </nav>
+    <nav class="second">
+        <button class="button_1">
+            <a class="link"  style="color:black" href="{%url 'details'  ordid.order_id%}">Bill</a>
+        </button>
+        <button class="button_2">
+            <a class="link" style="color:black" href="{% url 'order_status' ordid.order_id %}">OrderStatus</a>
+        </button>
+    </nav>
+    <div class="main">
+        <p style="font-family: Courier New, Courier, monospace; color: green; font-size: 23px;  margin-top: 1.7%; margin-bottom: -4%; text-align: center;"><b>Categories</b></p>
+        <div class="big">
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'Recommanded' ordid.order_id ordid.tb_no  %}"><img src="https://i.pinimg.com/originals/d9/63/d3/d963d3c0ba902872a9db875f01a33bbb.png"><p class="des">Recommanded</p></a>
+            </button>
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'Gujarati' ordid.order_id ordid.tb_no  %}"><img src="https://img.freepik.com/premium-vector/khaman-dhokla-indian-vegetarian-dish_464863-1200.jpg?w=2000"><p class="des">Gujarati</p></a>
+            </button>
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'Punjabi' ordid.order_id ordid.tb_no  %}"><img src="https://e7.pngegg.com/pngimages/817/79/png-clipart-cooked-flatbread-with-butter-on-plate-naan-indian-cuisine-paratha-pakistani-cuisine-tandoor-samosa-baked-goods-food.png"><p class="des">Punjabi</p></a>
+            </button>
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'Chinese' ordid.order_id ordid.tb_no  %}"><img src="https://media.istockphoto.com/id/1219452087/vector/hot-noodle-logo-vector-icon.jpg?b=1&s=612x612&w=0&k=20&c=pKcPRfhUMzcciSjv8-OtgMsDa3kgmgeU02d8YhaDE0s="><p class="des">Chinese</p></a>
+            </button>
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'Southindian' ordid.order_id ordid.tb_no  %}"><img src="https://media.istockphoto.com/id/970830208/vector/paper-masala-dosa-south-indian-traditional-meal-served-with-sambhar-and-coconut-chutney-over.jpg?b=1&s=612x612&w=0&k=20&c=7ds4204VsIkZPe-b0twVpKNu7CvNwwOg6Nfpw7gRAeU="><p class="des">SouthIndian</p></a>
+            </button>
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'ColdDrinks' ordid.order_id ordid.tb_no  %}"><img src="https://static.vecteezy.com/system/resources/thumbnails/002/718/065/small_2x/cocktail-drink-cold-free-vector.jpg"><p class="des">ColdDrinks</p></a>
+            </button>
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'Desserts' ordid.order_id ordid.tb_no  %}"><img src="https://w7.pngwing.com/pngs/403/320/png-transparent-bakery-cupcake-computer-icons-food-dessert-bakery-purple-logo-magenta.png"><p class="des">Desserts</p></a>
+            </button>
+            <button class="b">
+                <a class="link1" href="{%url 'south' 'CommenNeeds' ordid.order_id ordid.tb_no  %}"><img src="https://static.vecteezy.com/system/resources/previews/007/565/799/non_2x/salt-and-pepper-shakers-color-icon-spice-isolated-illustration-vector.jpg"><p class="des">CommonNeeds</p></a>
+            </button>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        background-color: #fefed5;
+    }
+    .cash{
+        margin-top: 10rem;
+        text-align: center;
+    }
+    h3{
+        text-align: center;
+        margin-top: 3rem;
+    }
+    button{
+        text-align: center;
+        margin-left: 150px;
+    }
+
+    .online{
+        margin-top: 3rem;
+        text-align: center;
+    }
+
+    .b1{
+        margin-left: 150px;
+    }
+</style>
+<body>
+    <h2 class="cash">Pay With Cash</h2>
+    <button onclick="paycash()">Cash</button>
+    <h3>OR</h3>
+    <h2 class="online">Pay Online</h2>
+    <button class="b1" id="rzp-button1">Pay</button>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        function paycash(){
+            alert("You can pay on Counter.")
+        }
+        var options = {
+            "key": "{{api_key}}", // Enter the Key ID generated from the Dashboard
+            "amount": "{{order_amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Contactless Ordering", //your business name
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+            "success": function (response){
+                // alert(response.razorpay_payment_id);
+                // alert(response.razorpay_order_id);
+                // alert(response.razorpay_signature)
+                alert("Payment Successful");
+                alert("Your exit approval is granted")
+            },
+            // "prefill": {
+            //     "name": "Manan Kadiya", //your customer's name
+            //     "email": "kadiyamanan77@gmail.com",
+            //     "contact": "9000090000"
+            // },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
+
+<!-- "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/", -->

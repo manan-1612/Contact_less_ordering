@@ -1,0 +1,100 @@
+
+.heading{
+    
+    text-align: center;
+    font-family: Copperplate, Papyrus, fantasy;
+    color: red;
+    font-size: 42px;
+    margin-top: 2%;
+}
+
+.veg{
+    height: 10px;
+    width: 10px;
+}
+
+.top
+{
+    border-bottom : 3px black solid; 
+    
+}
+
+.second{
+    border-bottom : 3px black solid; 
+}
+
+.link
+{
+    font-size : 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    color: white;
+    border: 2px black solid;
+    padding: 5px 10px 5px 10px;
+    margin: 2% 2% 2% -11%;
+}
+
+.link:hover{
+    color: black;
+    background-color: #fefed5;
+}
+
+.button_1
+{
+     font-size : 0.5rem; 
+    margin: 1.2rem 1.2rem 1.2rem 1.5rem;
+     border: none;
+     /* display: flex; */
+}
+
+.button_2
+{
+    font-size : 1rem; 
+    margin: 2% 2% 2% 3%;
+
+    border: none;
+}
+
+.link1{
+    text-decoration: none;
+    color: black;
+}
+
+.b{
+    box-shadow: 2px 2px;;
+    padding: 0.2rem;
+    margin: 2rem 0rem 0rem 1.5rem;
+    border-radius: 10%;
+    border: black solid 2px;
+}
+
+img{
+    border-radius:50%;
+    height: 3rem;
+    width: 3rem;
+    margin-bottom: 0.2rem;
+}
+
+.des{
+    font-size: 1rem;
+}
+
+.cat{
+    font-size: 1.5rem;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.ser{
+    height: 100%; width: 100%; display: none; position: fixed;
+}
+
+*
+{
+    margin : 0;
+    padding: 0;
+    background-position: 2.5%bottom;
+    background-color: black;
+    background-color:  #ffe9ae ;
+    
+}

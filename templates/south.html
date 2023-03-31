@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'item_style.css' %}"/>
+</head>
+<body>
+    <h1 class="heading">{{catagory}}</h1>
+        <nav class="sec">
+            <button class="bt_1">
+                <a class="link"  style="color:black" href="{%url 'details' orderId%}">Bill</a>
+            </button>
+            <button class="bt_2">
+                <a class="link" style="color:black" href="{% url 'order_status' orderId %}">OrderStatus</a>
+            </button>
+            <button class="bt_2">
+                <a class="link" style="color:black" href="{% url 'menu' orderId %}">Menu</a>
+            </button>
+        </nav>
+
+        {% for x in mymembers %}
+        {% if catagory == 'Recommanded' %}
+        <form action="{%url 'additem' 'Recommanded' orderId x.food_id %}" method="POST">
+        {% else %}
+        <form action="{%url 'additem' x.catagory orderId x.food_id %}" method="POST">
+        {% endif %}
+        {% csrf_token %}
+            <div class="item">
+                <div class="left">
+                    <p class="left itmf">
+                        <img class="veg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6y3NcyfXZ93xhY-u4_XEndeTd-mrRvCYNIpa48vKDdBJGbWVp3ZOoRZ515gC12-QW09M&usqp=CAU">
+                        {{ x.food_name }}
+                        <span class="right">
+                            <label style="background-color: #fefed5; font-size: 20px;">Rs.</label><b class="right mainf">{{ x.price }}</b><br>
+                        </span>
+                    </p>
+                    <br>
+                    <p class="left">
+                        <label style="background-color: #fefed5;">Rating: &nbsp{{x.avg_review}}/5</label>
+                        <span>
+                            <button class="right" type="submit">
+                                &nbsp;Add&nbsp;
+                                </button>
+                            <span class="right">
+                                <span class="right">&nbsp;&nbsp;</span>
+                                <label style="background-color: #fefed5;" for="item">Quantity:</label>
+                                <select  class="right" name="qnt" id="qnt">
+                                    <option style="background-color: #fefed5;" value="1">1</option>
+                                    <option style="background-color: #fefed5;" value="2">2</option>
+                                    <option style="background-color: #fefed5;" value="3">3</option>
+                                    <option style="background-color: #fefed5;" value="4">4</option>
+                                </select>
+                                &nbsp;
+                            </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </form>
+        {% endfor %}
+
+</body>
+</html>
+
+

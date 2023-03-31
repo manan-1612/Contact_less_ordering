@@ -1,0 +1,90 @@
+body
+{
+    margin : 0;
+    padding: 0;
+    background-image: url('WhatsApp Image 2022-12-26 at 17.49.14.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+p{
+    color: #ffe9ae ;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15%;
+    margin-left: 2%;
+}
+img
+{
+    border-radius: 50%;
+    border: 3px solid  #ffe9ae ;
+    margin-top: 46%;
+    margin-left: 42%;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    height: 10%;
+    width : 17%;
+}
+.link{
+    padding: 5px;
+    text-decoration: none;
+    height:50px;
+    border:50px;
+    font-size : 20px;
+    border-radius:20px;
+    color:  #ffe9ae ;
+    border: 2px solid  #ffe9ae ;
+}
+.button{
+    display: flex;
+    margin-left: 28%;
+    margin-top: 20%;
+}
+.button_1
+{
+    border:none;
+    margin-left: 10%;
+    margin-right: 20%;
+}
+.button_2
+{
+
+    margin-right:30%;
+    margin-left: 0%;
+}
+/*
+@media only screen and (max-width: 500px) {
+    .button_1{
+        margin-left: 27%;
+        margin-right: 10%;
+    }
+    p{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .button_1{
+      margin-right: 40%;
+    }
+    p{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    img{
+        margin-left:46%;
+        height: 7rem;
+        width: 7rem;
+    }
+    p{
+        font-size:40px;
+    }
+    .button_1{
+      margin-left: 25%;
+    }
+}*/
+

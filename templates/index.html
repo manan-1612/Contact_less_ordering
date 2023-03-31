@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css'%}"/>
+</head>
+<body>
+    <img src="{% static 'five-star-hotel-circle-background-icon-vector.webp'%}">
+    <p>Welcome!</p>
+    <div class="button">
+        <div class="button_1">
+            <a class="link" href="{%url 'menu' ord.order_id %}">Order Menu</a>
+        </div>
+    </div>
+</body>

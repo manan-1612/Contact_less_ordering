@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'form.css'%}"/>
+    <script>
+        function preventBack() {window.history.forward();}
+        setTimeout("preventBack()",0);
+        window.onunload = function() {null};
+    </script>
+</head>
+<body>
+    <h1 class="heading">Details for Bill</h1>
+    <script>
+    function myFunction() {
+        let message = "Warning!!! Once your bill will generated you can not make the new order for same bill."
+        return confirm(message);
+      }
+      </script>
+    <nav class="sec">
+        <button class="bt_1">
+            <a class="link" style="color:black" href="{% url 'menu' del.order_id%}">Menu</a>
+        </button>
+        <button class="bt_2">
+            <a class="link" style="color:black" href="{% url 'order_status' del.order_id%}">OrderStatus</a>
+        </button>
+    </nav>
+    <br>
+    <br>
+    <div class="form">
+        <form onsubmit="return myFunction(this);" method="POST" action="{%url 'bill' del.order_id%}">{% csrf_token %}
+            <label for="fname" style="font-size: 20px;">Full name:</label><br>
+            <input type="text" id="fname" name="fname" style="background-color: white;" required><br><br>
+            <label for="num" style="font-size: 20px;">Contact Number:</label><br>
+            <input type="text" id="num" name="num" pattern="[1-9]{1}[0-9]{9}" style="background-color: white;" required><br><br>
+            <label for="email" style="font-size: 20px;">Email Address:</label><br>
+            <input type="email" id="email" name="email" style="background-color: white;" required><br><br>
+            <button class="gb" value="submit">Generate Bill</button>
+        </form>
+    </div>
+</body>
+</html>
